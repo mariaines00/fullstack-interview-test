@@ -18,6 +18,8 @@ var db = mongoose.connection;
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 //request handling chain
 app.get('/', function (req, res) {
@@ -30,3 +32,8 @@ const server = http.createServer(app);
 server.listen(3000, function () {
 	console.log('app listening on port 3000!')
 });
+server.on('error', onError);
+
+function onError(error) {
+	console.error(error);
+}

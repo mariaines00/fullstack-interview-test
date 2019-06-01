@@ -12,13 +12,10 @@ router.get('/', shift_controller.shifts_list);
 // CREATE NEW
 router.put('/', shift_controller.shift_create);
 
-//GET SHIFT BY ID
-router.get('/:id', shift_controller.shift_details);
-
 // DELETE SHIFT
-router.delete('/:id', shift_controller.shift_delete);
+router.delete('/', shift_controller.shift_delete);
 
 // UPDATE SHIFT
-router.post('/:id', shift_controller.shift_update_details);
+router.post('/', shift_controller.shift_update_details);
 
 module.exports = router;

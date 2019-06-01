@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 // object structure in mongo
 const ShiftSchema = new Schema({
-    user: {type: String, required: true },
+    person: {type: String, required: true },
     start_date: { type: Date, required: true },
     duration: { type: Number, min:1, max:8, required: true }
 })

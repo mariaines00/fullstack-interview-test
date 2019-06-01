@@ -1,4 +1,5 @@
-const async = require('async');
+const { body,validationResult } = require('express-validator/check');
+const { sanitizeBody } = require('express-validator/filter');
 
 const Shift = require('../models/shift');
 
@@ -21,7 +22,20 @@ exports.shift_delete = function (req, res, next) {
 }
 
 exports.shift_create = function (req, res, next) {
-    res.send('NOT IMPLEMENTED: Shift create');
+
+    //create schma obj
+    let shift = new Shift(
+        {
+            person: req.body.name,
+            start_date: req.body.start_date,
+            duration: req.body.duration
+        }
+    )
+    // save to db
+    shift.save(function (err) {
+        if (err) { res.status(500).send(`could not add shift for ${req.body.name}`); }
+        res.status(200).send(`new shift added for person ${req.body.name}`);
+    });   
 }
 
 exports.shift_update_details = function (req, res, next) {
