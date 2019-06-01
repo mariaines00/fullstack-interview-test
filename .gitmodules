@@ -1,0 +1,4 @@
+[submodule "angular-nginx-frontend"]
+	url = https://github.com/mariaines00/angular-nginx-frontend
+[submodule "node-express-backend"]
+	url = https://github.com/mariaines00/node-express-backend
