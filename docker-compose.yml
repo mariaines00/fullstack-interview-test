@@ -9,22 +9,32 @@ services:
             - "4200:4200" 
         links:
             - backend
+        networks:
+          - network
 
     backend:
         build: node-express-backend
+        restart: always
         ports:
             - "3000:3000"
         links:
-            - mongodb
+            - mongo
         depends_on:
-            - mongodb
+            - mongo
+        networks:
+          - network
 
-    mongodb:
-        image: mongo:latest
+    mongo:
+        build: mongo
         ports:
             - "27017:27017"
         volumes:
             - database:/data/db
+        networks:
+          - network
 
 volumes:
     database:
+networks:
+  network:
+    driver: bridge
