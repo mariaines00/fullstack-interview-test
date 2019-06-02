@@ -34,7 +34,7 @@ exports.shift_create = function (req, res, next) {
     // save to db
     shift.save(function (err) {
         if (err) { res.status(500).send(`could not add shift for ${req.body.name}`); }
-        res.status(200).send(`new shift added for person ${req.body.name}`);
+        res.status(200).send({});
     });   
 }
 

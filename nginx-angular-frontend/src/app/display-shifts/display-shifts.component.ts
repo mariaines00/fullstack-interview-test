@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ShiftService } from './../services/shifts/shift.service';
+
 @Component({
-  selector: 'app-display-shifts',
-  templateUrl: './display-shifts.component.html',
-  styleUrls: ['./display-shifts.component.css']
+	selector: 'app-display-shifts',
+	templateUrl: './display-shifts.component.html',
+	styleUrls: ['./display-shifts.component.css']
 })
 export class DisplayShiftsComponent implements OnInit {
 
-  constructor() { }
+	shiftData: any;
+	displayedColumns: string[] = ['person', 'start_date', 'duration'];
 
-  ngOnInit() {
-  }
+	constructor(
+		private service: ShiftService
+	) { }
+
+	ngOnInit() {		
+		this.service.getShifts()
+			.subscribe(
+				response => {this.shiftData = response}
+			)
+	}
 
 }

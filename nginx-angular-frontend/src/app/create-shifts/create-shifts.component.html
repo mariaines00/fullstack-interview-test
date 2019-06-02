@@ -1,0 +1,21 @@
+<mat-card>
+
+	<mat-form-field [floatLabel]="true">
+		<mat-label>Please fill in the employee name</mat-label>
+		<input #name matInput placeholder="Employee Name">
+	</mat-form-field>
+
+	<mat-form-field>
+		<input matInput [matDatepicker]="picker" placeholder="Starting date">
+		<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+		<mat-datepicker #picker></mat-datepicker>
+	</mat-form-field>
+
+	<mat-form-field [floatLabel]="true">
+		<mat-label>Please fill in the shift duration (hours)</mat-label>
+		<input #duration type="number" matInput placeholder="Duration (hours)">
+	</mat-form-field>
+
+	<button mat-raised-button (click)="createShift(name, picker, duration)" > Submit </button>
+
+</mat-card>

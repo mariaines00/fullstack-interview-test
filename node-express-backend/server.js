@@ -20,6 +20,13 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+//CORS
+app.use(function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	res.header("Access-Control-Allow-Methods", "*");
+	next();
+});
 
 //request handling chain
 app.get('/', function (req, res) {
@@ -35,5 +42,8 @@ server.listen(3000, function () {
 server.on('error', onError);
 
 function onError(error) {
-	console.error(error);
+	console.error(`error`);
 }
+
+
+//TODO: fix this file struct cuz it's kinda crazy and all over the place MARIA INÊS :/

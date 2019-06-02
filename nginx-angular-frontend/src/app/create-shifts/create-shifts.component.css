@@ -1,0 +1,15 @@
+mat-card {
+    max-width: 70%;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+mat-form-field {
+    display: block !important;
+    max-width: 70%;
+    margin-left: 10%;
+}
+
+button {
+    margin-top: 5%;
+    min-width: -webkit-fill-available;
+}

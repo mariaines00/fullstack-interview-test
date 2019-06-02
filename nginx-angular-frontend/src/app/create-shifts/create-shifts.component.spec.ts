@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ManageShiftsComponent } from './manage-shifts.component';
+import { CreateShiftsComponent } from './create-shifts.component';
 
-describe('ManageShiftsComponent', () => {
-  let component: ManageShiftsComponent;
-  let fixture: ComponentFixture<ManageShiftsComponent>;
+describe('CreateShiftsComponent', () => {
+  let component: CreateShiftsComponent;
+  let fixture: ComponentFixture<CreateShiftsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ManageShiftsComponent ]
+      declarations: [ CreateShiftsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ManageShiftsComponent);
+    fixture = TestBed.createComponent(CreateShiftsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

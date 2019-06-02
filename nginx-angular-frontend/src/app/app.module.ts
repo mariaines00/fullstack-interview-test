@@ -1,33 +1,52 @@
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 /* app components */
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ManageShiftsComponent } from './manage-shifts/manage-shifts.component';
+import { CreateShiftsComponent } from './create-shifts/create-shifts.component';
 import { DisplayShiftsComponent } from './display-shifts/display-shifts.component';
+
+/* app services */
+import { ShiftService } from './services/shifts/shift.service';
 
 /* material imports */
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material';
+import {MatCardModule} from '@angular/material/card';
+import { MatDatepickerModule, MatNativeDateModule} from '@angular/material';
 
 @NgModule({
 	declarations: [
 		AppComponent,
-		ManageShiftsComponent,
+		CreateShiftsComponent,
 		DisplayShiftsComponent
 	],
 	imports: [
 		BrowserModule,
+		HttpClientModule,
 		BrowserAnimationsModule,
 		AppRoutingModule,
 		MatMenuModule,
 		MatToolbarModule,
-		MatIconModule
+		MatIconModule,
+		MatTableModule,
+		MatButtonModule,
+		MatFormFieldModule,
+		MatInputModule,
+		MatCardModule,
+		MatDatepickerModule,
+		MatNativeDateModule
+
 	],
-	providers: [],
+	providers: [ ShiftService ],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
