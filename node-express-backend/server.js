@@ -2,22 +2,21 @@ const express = require('express');
 const app = express();
 const http = require('http');
 
-const shiftRouter = require('./routes/api_shifts');
-
-//Import the mongoose module
-var mongoose = require('mongoose');
-
+// db
+const mongoose = require('mongoose');
 //Set up default mongoose connection
-var mongoDB = 'mongodb://127.0.0.1/local';
+const mongoDB = 'mongodb://127.0.0.1/local';
 mongoose.connect(mongoDB);
 // Get Mongoose to use the global promise library
 mongoose.Promise = global.Promise;
 //Get the default connection
-var db = mongoose.connection;
-
+const db = mongoose.connection;
 //Bind connection to error event (to get notification of connection errors)
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
+// server
+
+const shiftRouter = require('./routes/api_shifts');
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 //CORS
@@ -28,11 +27,6 @@ app.use(function(req, res, next) {
 	next();
 });
 
-//request handling chain
-app.get('/', function (req, res) {
-	res.send('Hello World!')
-});
-
 app.use('/api/shifts', shiftRouter);
 
 const server = http.createServer(app);
@@ -40,9 +34,9 @@ server.listen(3000, function () {
 	console.log('app listening on port 3000!')
 });
 server.on('error', onError);
-
 function onError(error) {
 	console.error(`error`);
+	//needs decent error handling
 }
 
 

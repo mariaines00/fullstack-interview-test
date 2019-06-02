@@ -4,7 +4,7 @@ version: '3'
 services:
     frontend: 
         hostname: localhost
-        build: angular-nginx-frontend
+        build: nginx-angular-frontend
         ports:
             - "4200:4200" 
         links:
