@@ -1,5 +1,4 @@
-## For the ustwo technical challenge:
-### A system that allows a store’s employees to view and book shifts
+### A system that allows store’s employees to view and book shifts
 ------
 
 ### solution
@@ -31,4 +30,4 @@ With mongo for the database and mongoose to comunicate with it;
 3. run docker-compose up -d --build
 
 ### see it live
-The app is deployed on google cloud, please go to /url/
+Sadly I was not able to deploy it in neither kubernets nor google cloud.
